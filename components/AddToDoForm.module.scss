@@ -7,10 +7,9 @@
   border: 1px solid $secondaryColor;
   padding: 30px;
 
-  &_box {
-    border: 1px solid $secondaryColor;
-    width: 25px;
-    height: 25px;
+  &__importance {
+  }
+  &__importanceValue {
   }
   &_description {
     margin-top: 20px;

@@ -7,15 +7,15 @@
   border: 1px solid $secondaryColor;
   padding: 30px;
 
-  &_box {
+  &__box {
     border: 1px solid $secondaryColor;
     width: 25px;
     height: 25px;
   }
-  &_description {
+
+  &__description {
     margin-top: 20px;
     word-wrap: break-word;
-    // background: red;
     width: 440px;
     border-top: 1px solid $secondaryColor;
     padding-top: 20px;
