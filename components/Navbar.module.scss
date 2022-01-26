@@ -1,16 +1,15 @@
+@import '../styles/config';
 .navbar {
   font-size: 20px;
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin: 20px;
+  padding: 20px;
   letter-spacing: 0.5px;
+  border-bottom: 1px solid;
 
-  a {
-    padding: 10px 20px;
-    text-align: center;
-  }
   &_link {
+    padding: 10px 20px;
     position: relative;
     text-align: center;
     &:before,
@@ -21,7 +20,7 @@
       height: 1px;
       top: 50%;
       margin-top: 15px;
-      background: rgb(0, 0, 0);
+      background: $secondaryColor;
     }
 
     &:before {
@@ -29,18 +28,18 @@
     }
     &:after {
       right: 0px;
-      background: rgb(0, 0, 0);
+      background: $secondaryColor;
       transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     &:hover:before {
-      background: rgb(0, 0, 0);
+      background: $secondaryColor;
       width: 100%;
       transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
     }
 
     &:hover:after {
-      background: rgb(0, 0, 0);
+      background: $secondaryColor;
       background: transparent;
       width: 100%;
       transition: 0s;
@@ -55,7 +54,7 @@
     height: 1px;
     top: 50%;
     margin-top: 15px;
-    background: rgb(0, 0, 0);
+    background: $secondaryColor;
   }
   &:after {
     content: '';
@@ -64,7 +63,7 @@
     height: 1px;
     top: 50%;
     margin-top: 15px;
-    background: rgb(0, 0, 0);
+    background: $secondaryColor;
   }
 
   &:before {

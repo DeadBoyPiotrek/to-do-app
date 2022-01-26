@@ -1,0 +1,23 @@
+@import '../styles/config';
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 500px;
+  border: 1px solid $secondaryColor;
+  padding: 30px;
+
+  &_box {
+    border: 1px solid $secondaryColor;
+    width: 25px;
+    height: 25px;
+  }
+  &_description {
+    margin-top: 20px;
+    word-wrap: break-word;
+    // background: red;
+    width: 440px;
+    border-top: 1px solid $secondaryColor;
+    padding-top: 20px;
+  }
+}
