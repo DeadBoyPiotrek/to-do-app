@@ -9,8 +9,19 @@ function AddToDoForm() {
   } = useForm();
 
   const onSubmit = async data => {
+    const data2 = {
+      title: data.title,
+      importance: data.importance,
+      importanceValue: +data.importanceValue,
+      description: data.description,
+    };
+    console.log('data2 : ', data2);
     try {
-      await fetch('api/addTask', data)
+      await fetch('api/addTask', {
+        method: 'POST',
+        body: JSON.stringify({ data2 }),
+        headers: { 'Content-Type': 'application/json' },
+      })
         .then(response => response.json())
         .then(resData => {
           console.log('resData:', resData);
@@ -36,6 +47,7 @@ function AddToDoForm() {
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
+              <option value="v">v</option>
             </select>
           </div>
           <div className={styles.container__importanceValue}>
