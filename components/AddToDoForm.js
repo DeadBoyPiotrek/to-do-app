@@ -15,7 +15,7 @@ function AddToDoForm() {
       importanceValue: +data.importanceValue,
       description: data.description,
     };
-    console.log('data2 : ', data2);
+
     try {
       await fetch('api/addTask', {
         method: 'POST',
@@ -55,7 +55,9 @@ function AddToDoForm() {
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
+              <option value="4">4</option>
               <option value="5">5</option>
+              <option value="6">6</option>
             </select>
           </div>
           <div className={styles.container__description}>

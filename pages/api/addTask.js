@@ -25,21 +25,22 @@ const handler = async (req, res) => {
     !(importanceValue == 1) &&
     !(importanceValue == 2) &&
     !(importanceValue == 3) &&
-    !(importanceValue == 4)
+    !(importanceValue == 4) &&
+    !(importanceValue == 5)
   ) {
     res.status(422).json({ message: `Invalid importanceValue` });
     return;
   }
 
-  // try {
-  //   const client = await clientPromise;
-  //   const db = await client.db();
-  //   const data = await db.collection('tasks').find({}).toArray();
-  //   // db.collection('tasks').insertOne({ hello: 20 });
-  // res.status(200).json({ data, name: 'successfully connected to database' });
-  // } catch (err) {
-  //   res.status(500).json({ message: `err: ${err}` });
-  // }
+  try {
+    const client = await clientPromise;
+    const db = await client.db();
+
+    db.collection('tasks').insertOne(data);
+    res.status(200).json({ data, name: 'successfully connected to database' });
+  } catch (err) {
+    res.status(500).json({ message: `err: ${err}` });
+  }
   res.status(200).json({ data, name: 'successfully connected to database' });
 };
 
