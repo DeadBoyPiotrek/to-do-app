@@ -8,8 +8,16 @@ function AddToDoForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = data => {
-    console.log(data);
+  const onSubmit = async data => {
+    try {
+      await fetch('api/addTask', data)
+        .then(response => response.json())
+        .then(resData => {
+          console.log('resData:', resData);
+        });
+    } catch (err) {
+      err => console.log('err:', err);
+    }
   };
 
   return (
