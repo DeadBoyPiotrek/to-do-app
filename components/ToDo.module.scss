@@ -3,21 +3,31 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  width: 500px;
+  width: 450px;
   border: 1px solid $secondaryColor;
   padding: 30px;
+  margin: 10px 5px;
 
   &__box {
     border: 1px solid $secondaryColor;
     width: 25px;
     height: 25px;
+    text-align: center;
+  }
+
+  &__title {
+    text-align: center;
+    width: 400px;
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   &__description {
     margin-top: 20px;
     word-wrap: break-word;
-    width: 440px;
+    width: 400px;
     border-top: 1px solid $secondaryColor;
     padding-top: 20px;
+    text-align: center;
   }
 }

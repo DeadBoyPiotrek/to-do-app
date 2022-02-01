@@ -1,5 +1,8 @@
 @import '../styles/config';
 .navbar {
+  position: sticky;
+  top: 0;
+
   font-size: 20px;
   display: flex;
   gap: 10px;
@@ -7,7 +10,7 @@
   padding: 20px;
   letter-spacing: 0.5px;
   border-bottom: 1px solid;
-
+  backdrop-filter: blur(5px);
   &_link {
     padding: 10px 20px;
     position: relative;

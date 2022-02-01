@@ -29,6 +29,9 @@ function AddToDoForm() {
     } catch (err) {
       err => console.log('err:', err);
     }
+    // const refreshData = () => {
+    //   router.replace(router.asPath);
+    // };
   };
 
   return (
@@ -63,7 +66,7 @@ function AddToDoForm() {
           <div className={styles.container__description}>
             <input
               placeholder="description"
-              {...register('description', { required: true })}
+              {...register('description')}
             ></input>
           </div>
           <button>Add to do</button>

@@ -4,11 +4,11 @@ const handler = async (req, res) => {
   const data = req.body.data2;
   const { title, importance, importanceValue, description } = data;
 
-  if (!title || !importance || !importanceValue || !description) {
+  if (!title || !importance || !importanceValue) {
     res.status(422).json({ message: `Missing Value` });
     return;
   }
-  if (title.trim() === '' || description.trim() === '') {
+  if (title.trim() === '') {
     res.status(422).json({ message: `Invalid title or desc` });
     return;
   }
