@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './AddToDoForm.module.scss';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/router';
 function AddToDoForm() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -25,13 +27,16 @@ function AddToDoForm() {
         .then(response => response.json())
         .then(resData => {
           console.log('resData:', resData);
+          //? refreshData
+          const refreshData = () => {
+            router.replace(router.asPath);
+          };
+          refreshData();
+          //? refreshData
         });
     } catch (err) {
       err => console.log('err:', err);
     }
-    // const refreshData = () => {
-    //   router.replace(router.asPath);
-    // };
   };
 
   return (

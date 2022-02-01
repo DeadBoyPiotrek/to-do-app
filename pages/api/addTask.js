@@ -41,7 +41,6 @@ const handler = async (req, res) => {
   } catch (err) {
     res.status(500).json({ message: `err: ${err}` });
   }
-  res.status(200).json({ data, name: 'successfully connected to database' });
 };
 
 export default handler;
