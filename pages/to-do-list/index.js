@@ -8,6 +8,7 @@ function ToDos({ tasks, isConnected }) {
     return array.map(task => (
       <ToDo
         key={task._id}
+        id={task._id}
         title={task.title}
         description={task.description}
         // importance={task.importance}
@@ -33,24 +34,30 @@ function ToDos({ tasks, isConnected }) {
     <>
       <div className={styles.container}>
         <AddToDoForm />
-        <div className={styles.container__main}>
-          <div className={styles.container__main_column}>
-            <h1>A</h1>
-            <ul className={styles.container__main_list}>{tasksAOut}</ul>
+        {tasks.length === 0 ? (
+          <h1 className={styles.container_goodWork}>
+            Add a task and keep up the good work !
+          </h1>
+        ) : (
+          <div className={styles.container__main}>
+            <div className={styles.container__main_column}>
+              <h1>A</h1>
+              <ul className={styles.container__main_list}>{tasksAOut}</ul>
+            </div>
+            <div className={styles.container__main_column}>
+              <h1>B</h1>
+              <ul className={styles.container__main_list}>{tasksBOut}</ul>
+            </div>
+            <div className={styles.container__main_column}>
+              <h1>C</h1>
+              <ul className={styles.container__main_list}>{tasksCOut}</ul>
+            </div>
+            <div className={styles.container__main_column}>
+              <h1>D</h1>
+              <ul className={styles.container__main_list}>{tasksDOut}</ul>
+            </div>
           </div>
-          <div className={styles.container__main_column}>
-            <h1>B</h1>
-            <ul className={styles.container__main_list}>{tasksBOut}</ul>
-          </div>
-          <div className={styles.container__main_column}>
-            <h1>C</h1>
-            <ul className={styles.container__main_list}>{tasksCOut}</ul>
-          </div>
-          <div className={styles.container__main_column}>
-            <h1>D</h1>
-            <ul className={styles.container__main_list}>{tasksDOut}</ul>
-          </div>
-        </div>
+        )}
       </div>
     </>
   );

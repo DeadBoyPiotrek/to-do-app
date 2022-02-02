@@ -1,5 +1,5 @@
 import { MongoClient } from 'mongodb';
-
+var mongodb = require('mongodb');
 const uri = process.env.MONGODB_URI;
 const options = {};
 
@@ -24,18 +24,38 @@ if (process.env.NODE_ENV === 'development') {
   clientPromise = client.connect();
 }
 
-// export const getTasks = async () => {
-//   try {
-//     const client = await clientPromise;
-//     const db = await client.db();
-//     const data = await db.collection('tasks').find({}).toArray();
-//     const tasks = JSON.parse(JSON.stringify(data));
+export const getTasks = async () => {
+  try {
+    const client = await clientPromise;
+    const db = await client.db();
+    const data = await db.collection('tasks').find({}).toArray();
+    const tasks = await JSON.parse(JSON.stringify(data));
 
-//     return tasks;
-//   } catch (e) {
-//     console.error(e);
-//   }
-// };
+    return tasks;
+  } catch (e) {
+    console.error(e);
+    return e?.message;
+  }
+};
+export const getTask = async id => {
+  try {
+    const client = await clientPromise;
+    const db = await client.db();
+    const data = await db
+      .collection('tasks')
+      .find({ _id: new mongodb.ObjectID(id) })
+
+      .toArray();
+    const task = await JSON.parse(JSON.stringify(data));
+
+    return task;
+  } catch (e) {
+    console.error(e);
+    return e?.message;
+  }
+};
+
+// export const getTasks = async () => {};
 // Export a module-scoped MongoClient promise. By doing this in a
 // separate module, the client can be shared across functions.
 

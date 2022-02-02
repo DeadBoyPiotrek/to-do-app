@@ -8,6 +8,7 @@ function AddToDoForm() {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = async data => {
@@ -37,6 +38,7 @@ function AddToDoForm() {
     } catch (err) {
       err => console.log('err:', err);
     }
+    // reset();
   };
 
   return (

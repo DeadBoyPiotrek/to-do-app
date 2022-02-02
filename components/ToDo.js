@@ -1,19 +1,45 @@
 import styles from './ToDo.module.scss';
 import { MdDeleteForever } from 'react-icons/md';
 import { AiFillEdit } from 'react-icons/ai';
-function ToDo({ title, description, importance, importanceValue }) {
-  const deleteTaskHandler = task => {
-    console.log(task);
+import { useRouter } from 'next/router';
+function ToDo({ id, title, description, importance, importanceValue }) {
+  const router = useRouter();
+  //!  delete task
+  const deleteTaskHandler = async task => {
+    try {
+      await fetch('api/deleteTask', {
+        method: 'POST',
+        body: JSON.stringify({ id }),
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then(response => response.json())
+        .then(resData => {
+          //? refreshData
+          const refreshData = () => {
+            router.replace(router.asPath);
+          };
+          refreshData();
+          //? refreshData
+        });
+    } catch (err) {
+      err => console.log('err:', err);
+    }
   };
+
+  //!  delete task
+
+  //!  edit task
+
   const editTaskHandler = task => {
-    console.log(task);
+    router.push(`to-do-list/${id}`);
   };
+  //!  edit task
   return (
     <li>
       <div className={styles.container}>
         <div className={styles.container__title}>{title}</div>
-        {/* <div className={styles.container__box}>{importance}</div>
-        <div className={styles.container__box}>{importanceValue}</div> */}
+        {/* <div className={styles.container__box}>{}</div> */}
+        {/* <div className={styles.container__box}>{importanceValue}</div> */}
         {description && (
           <div className={styles.container__description}>{description}</div>
         )}
