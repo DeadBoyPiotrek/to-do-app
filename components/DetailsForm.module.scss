@@ -1,6 +1,5 @@
-@import '../../../styles/config';
+@import '../styles/config';
 @mixin iconStyle {
-  all: unset;
   transition: all 0.5s ease-out;
   color: white;
   cursor: pointer;
@@ -9,16 +8,17 @@
   }
 }
 .container {
+  font-size: 1em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 1000px;
   align-items: center;
-  gap: 0.5em;
+  gap: 2em;
   border: 1px solid $secondaryColor;
   padding: 30px;
   margin: 100px auto;
-  font-size: 2em;
+
   &__values {
     display: flex;
     align-items: center;
@@ -26,6 +26,8 @@
   }
 
   &__box {
+    font-size: 2em;
+    font-family: 'Lora', serif;
     border: 1px solid $secondaryColor;
     width: 50px;
     height: 50px;
@@ -33,19 +35,22 @@
   }
 
   &__title {
+    font-size: 2.1rem;
+    border: none;
     text-align: center;
-    width: 400px;
+    width: 800px;
     font-weight: bold;
-    font-size: 1.2em;
     word-wrap: break-word;
   }
 
   &__description {
-    margin-top: 20px;
-    word-wrap: break-word;
+    font-size: 2em;
     width: 800px;
+    border: none;
     border-top: 1px solid $secondaryColor;
-    padding-top: 20px;
     text-align: center;
+    inline-size: 800px;
+    overflow-wrap: break-word;
+    font-family: 'Lora', serif;
   }
 }

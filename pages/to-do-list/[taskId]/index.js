@@ -1,24 +1,25 @@
-// import clientPromise from '../../../utils/mongodb';
 import Head from 'next/head';
 import { getTasks } from '../../../utils/mongodb';
 import { getTask } from '../../../utils/mongodb';
-import { useRouter } from 'next/router';
 import styles from './taskId.module.scss';
-function Task({ task }) {
-  const { title, description, importance, importanceValue } = task;
-  console.log(title);
-  console.log(task);
+import DetailsForm from '../../../components/DetailsForm';
+function Task({ task, taskId }) {
+  const { title, description, importance, importanceValue } = task[0];
+
   return (
     <>
-      <Head></Head>
-      <div className={styles.container}>
-        <div className={styles.container__title}>{title}</div>
-        <div className={styles.container__box}>{}</div>
-        <div className={styles.container__box}>{importanceValue}</div>
-        {description && (
-          <div className={styles.container__description}>{description}</div>
-        )}
-      </div>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description || title} />
+      </Head>
+
+      <DetailsForm
+        id={taskId}
+        title={title}
+        description={description}
+        importance={importance}
+        importanceValue={importanceValue}
+      />
     </>
   );
 }
@@ -49,7 +50,7 @@ export const getStaticProps = async ({ params }) => {
     const task = await getTask(taskId);
 
     return {
-      props: { isConnected: true, task },
+      props: { isConnected: true, task, taskId },
     };
   } catch (e) {
     console.error(e);
