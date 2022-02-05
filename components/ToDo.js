@@ -2,6 +2,7 @@ import styles from './ToDo.module.scss';
 import { MdDeleteForever } from 'react-icons/md';
 import { AiFillEdit } from 'react-icons/ai';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 function ToDo({ id, title, description, importance, importanceValue }) {
   const router = useRouter();
   //!  delete task
@@ -35,7 +36,17 @@ function ToDo({ id, title, description, importance, importanceValue }) {
   };
   //!  edit task
   return (
-    <li>
+    <motion.li
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 2 }}
+      exit={{
+        opacity: 0,
+        transition: {
+          duration: 0.5,
+        },
+      }}
+    >
       <div className={styles.container}>
         <div className={styles.container__title}>{title}</div>
         {/* <div className={styles.container__box}>{}</div> */}
@@ -53,7 +64,7 @@ function ToDo({ id, title, description, importance, importanceValue }) {
           <AiFillEdit size={'1.3em'} />
         </button>
       </div>
-    </li>
+    </motion.li>
   );
 }
 
