@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { getTasks } from '../../../utils/mongodb';
+// import { getTasks } from '../../../utils/mongodb';
 import { getTask } from '../../../utils/mongodb';
 import styles from './taskId.module.scss';
 import DetailsForm from '../../../components/DetailsForm';
