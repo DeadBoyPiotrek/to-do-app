@@ -76,7 +76,7 @@ function ToDos({ tasks, isConnected }) {
   }
   return <div>Couldn&#39;t connect to database.</div>;
 }
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   try {
     const client = await clientPromise;
     const db = await client.db();

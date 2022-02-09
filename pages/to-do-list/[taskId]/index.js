@@ -24,27 +24,27 @@ function Task({ task, taskId }) {
   );
 }
 
-export const getStaticPaths = async () => {
-  try {
-    const tasks = await getTasks();
+// export const getStaticPaths = async () => {
+//   try {
+//     const tasks = await getTasks();
 
-    const paths = tasks.map(task => ({
-      params: { taskId: task._id },
-    }));
+//     const paths = tasks.map(task => ({
+//       params: { taskId: task._id },
+//     }));
 
-    return { paths, fallback: false };
-  } catch (e) {
-    console.error(e);
+//     return { paths, fallback: false };
+//   } catch (e) {
+//     console.error(e);
 
-    const arr = [{ params: { taskId: 'task1' } }];
-    return {
-      arr,
-      fallback: false,
-    };
-  }
-};
+//     const arr = [{ params: { taskId: 'task1' } }];
+//     return {
+//       arr,
+//       fallback: false,
+//     };
+//   }
+// };
 
-export const getStaticProps = async ({ params }) => {
+export const getServerSideProps = async ({ params }) => {
   const taskId = params.taskId;
   try {
     const task = await getTask(taskId);
