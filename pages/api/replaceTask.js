@@ -3,7 +3,6 @@ var mongodb = require('mongodb');
 const handler = async (req, res) => {
   const data = req.body.data2;
   const { title, importance, importanceValue, description, id } = data;
-  console.log('data:', data);
 
   if (!title || !importance || !importanceValue) {
     res.status(422).json({ message: `Missing Value` });

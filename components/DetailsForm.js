@@ -40,7 +40,7 @@ function ReplaceToDoForm({
       })
         .then(response => response.json())
         .then(resData => {
-          console.log('resData:', resData);
+          // console.log('resData:', resData);
           //? refreshData
           const refreshData = () => {
             router.replace(router.asPath);

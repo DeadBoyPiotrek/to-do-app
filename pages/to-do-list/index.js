@@ -3,7 +3,7 @@ import ToDo from '../../components/ToDo';
 import AddToDoForm from '../../components/AddToDoForm';
 import styles from './ToDos.module.scss';
 import clientPromise from '../../utils/mongodb';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 function ToDos({ tasks, isConnected }) {
   if (isConnected) {
     const addTasksArray = array => {
@@ -74,7 +74,7 @@ function ToDos({ tasks, isConnected }) {
       </>
     );
   }
-  return <div>Couldn't connect to database.</div>;
+  return <div>Couldn&#39;t connect to database.</div>;
 }
 export async function getStaticProps(context) {
   try {

@@ -1,6 +1,8 @@
 import { MongoClient } from 'mongodb';
 var mongodb = require('mongodb');
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
+
+const uri = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.87zsw.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
 const options = {};
 
 let client;

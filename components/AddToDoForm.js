@@ -27,7 +27,6 @@ function AddToDoForm() {
       })
         .then(response => response.json())
         .then(resData => {
-          console.log('resData:', resData);
           //? refreshData
           const refreshData = () => {
             router.replace(router.asPath);
@@ -57,7 +56,6 @@ function AddToDoForm() {
               <option value="B">B</option>
               <option value="C">C</option>
               <option value="D">D</option>
-              <option value="v">v</option>
             </select>
           </div>
           <div className={styles.container__importanceValue}>
@@ -67,7 +65,6 @@ function AddToDoForm() {
               <option value="3">3</option>
               <option value="4">4</option>
               <option value="5">5</option>
-              <option value="6">6</option>
             </select>
           </div>
           <div className={styles.container__description}>
